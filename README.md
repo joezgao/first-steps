@@ -8,6 +8,8 @@ How an AI learns to act. A small agent on a square world must reach a light, and
 
 ## Open it
 
+**Live:** [joezgao.github.io/first-steps/first-steps.html](https://joezgao.github.io/first-steps/first-steps.html) (nothing to install).
+
 Open `first-steps.html` in a recent browser (keep `first-steps-data.js` next to it). The page is 60 kB; the checkpoints (0.45 MB) load from `first-steps-data.js` after the words have painted, together with three.js 0.147.0 from jsDelivr; two fonts come from Google Fonts. Mobile Lighthouse 13.6, served uncompressed from localhost on 2026-11-09: performance 99 (first paint 0.9 s, was 3.2 s with the checkpoints inline), accessibility, best practices and SEO 100.
 
 - Six creatures run the selected checkpoint's policy at once, with fresh noise on every step. When they have all finished, a new round starts, and the last round stays as faint trails. A trail turns accent-coloured when its try reaches the light. When a try falls in, the pit's rim flashes and a small cross marks where it went in.
