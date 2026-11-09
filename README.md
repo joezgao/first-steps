@@ -8,7 +8,7 @@ How an AI learns to act. A small agent on a square world must reach a light, and
 
 ## Open it
 
-Open `first-steps.html` in a recent browser. It is a single 0.5 MB file with every checkpoint inlined; it loads three.js 0.147.0 from jsDelivr and two fonts from Google Fonts.
+Open `first-steps.html` in a recent browser (keep `first-steps-data.js` next to it). The page is 60 kB; the checkpoints (0.45 MB) load from `first-steps-data.js` after the words have painted, together with three.js 0.147.0 from jsDelivr; two fonts come from Google Fonts. Mobile Lighthouse 13.6, served uncompressed from localhost on 2026-11-09: performance 99 (first paint 0.9 s, was 3.2 s with the checkpoints inline), accessibility, best practices and SEO 100.
 
 - Six creatures run the selected checkpoint's policy at once, with fresh noise on every step. When they have all finished, a new round starts, and the last round stays as faint trails. A trail turns accent-coloured when its try reaches the light. When a try falls in, the pit's rim flashes and a small cross marks where it went in.
 - **Slider**: 20 checkpoints, from episode 0 to 10,240. Above it, the learning curve shares the x axis: the bright line is the share of 1,000 test runs that reached the light at each checkpoint, and the grey line is the same share within the training batches (a rolling mean over 8 updates of 32 episodes).
@@ -91,6 +91,7 @@ The export script that packs the checkpoints into the page, its page template an
 ## In this repository
 
 - `first-steps.html`: the piece
+- `first-steps-data.js`: the trained checkpoints it replays (`window.FS_MODEL`), split out of the page on 2026-11-09
 - `train.py`: the world, the networks, the gradient check and training
 - `screenshots/`: the episode-64 fall into the pit, the trained route, and the phone layout
 - `loop/`: the loop video, its GIF and a poster
