@@ -86,7 +86,7 @@ python3 train.py --check   # gradient check only
 python3 train.py           # gradient check, then training -> ckpt/ep_XXXXX.npz, log.json
 ```
 
-The export script that packs the checkpoints into the page, its page template and the Playwright check are not in this repository yet, so `first-steps.html` is the built page as shipped.
+The export script that packs the checkpoints into the page, its page template and the Playwright check are not included in this repository, so `first-steps.html` is the built page as shipped.
 
 ## In this repository
 
