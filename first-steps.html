@@ -535,7 +535,7 @@ function record(out) { tally.tries++; if (out === 1) tally.light++; else if (out
 function renderLive() {
   const t = tally;
   $('live').innerHTML = t.tries === 0 ? '<span>Live in your browser: first tries running…</span>' :
-    `Live here: <span>${t.tries}</span> ${t.tries === 1 ? 'try' : 'tries'} · <i class="ok"></i><span>${t.light}</span> reached the light · <i class="x">×</i><span>${t.pit}</span> fell in${t.time ? ` · <span>${t.time}</span> ran out of time` : ''}`;
+    `Live here: <span>${t.tries}</span> ${t.tries === 1 ? 'try' : 'tries'}, <i class="ok"></i><span>${t.light}</span> reached the light, <i class="x">×</i><span>${t.pit}</span> fell in${t.time ? `, <span>${t.time}</span> ran out of time` : ''}`;
 }
 function fadeGhosts() {
   for (const g of agents) {
@@ -611,16 +611,16 @@ function noteFor(i) {
 function renderCkpt() {
   const c = CK[ci], e = c.eval, n = nets[ci];
   $('note').textContent = noteFor(ci);
-  $('stats').innerHTML = `Episode <b>${fmt(c.ep)}</b><span class="wide"> of ${fmt(MODEL.cfg.episodes)}</span> · <span class="wide">in </span>${fmt(MODEL.evalEpisodes)} test runs: ` +
+  $('stats').innerHTML = `Episode <b>${fmt(c.ep)}</b><span class="wide"> of ${fmt(MODEL.cfg.episodes)}</span>; <span class="wide">in </span>${fmt(MODEL.evalEpisodes)} test runs: ` +
     `<span class="acc">${pct(e.light)}</span> reach the light, <b>${pct(e.pit)}</b> fall in` +
     (e.timeout > 0 ? `, <b>${pct(e.timeout)}</b> run out of time` : '') +
-    (e.steps && e.light >= 0.1 ? `<span class="wide"> · ${e.steps.toFixed(0)} steps when it makes it</span>` : '');
+    (e.steps && e.light >= 0.1 ? `<span class="wide">; ${e.steps.toFixed(0)} steps when it makes it</span>` : '');
   const s = $('scrub');
   s.style.setProperty('--p', (ci / (NC - 1) * 100) + '%');
   s.setAttribute('aria-valuetext', `Episode ${fmt(c.ep)} of ${fmt(MODEL.cfg.episodes)}: ${pct(e.light)} reach the light, ${pct(e.pit)} fall in the pit`);
   $('meta').innerHTML = `<div>REINFORCE <span>with a baseline</span></div>` +
-    `<div class="wide">policy <span>2 → ${H} → ${H} → 2</span> · <span>${fmt(MODEL.cfg.params_policy)}</span> numbers</div>` +
-    `<div class="wide"><span>${fmt(MODEL.cfg.episodes)}</span> episodes · <span>seconds</span> to train</div>` +
+    `<div class="wide">policy <span>2 → ${H} → ${H} → 2</span>, <span>${fmt(MODEL.cfg.params_policy)}</span> numbers</div>` +
+    `<div class="wide"><span>${fmt(MODEL.cfg.episodes)}</span> episodes, <span>seconds</span> to train</div>` +
     `<div>exploration noise σ <span class="acc">${((n.sigma[0] + n.sigma[1]) / 2).toFixed(2)}</span></div>`;
   if (wantsOn) buildArrows(n);
   if (valueTarget > 0) { buildValue(ci); colourDirty = true; }
@@ -695,7 +695,7 @@ function renderPanel() {
   <table><thead><tr><th>episode</th><th>light</th><th>pit</th><th>out of time</th><th>steps</th><th>σ</th></tr></thead><tbody id="ptab"></tbody></table>
   <h3>Limits</h3>
   <p>One fixed map. The policy only knows where it is, so it has learned this map, not what a pit is. Every successful test run at every checkpoint goes round the right-hand side; it never learned the left. With its noise still on, ${pct(last.pit)} of trained tries still fall in. REINFORCE is noisy: the curve dips more than once.</p>
-  <p class="keys"><kbd>←</kbd> <kbd>→</kbd> checkpoint · <kbd>Space</kbd> pause · <kbd>L</kbd> learn · <kbd>W</kbd> wants · <kbd>V</kbd> value · <kbd>Esc</kbd> close</p>`;
+  <p class="keys"><kbd>←</kbd> <kbd>→</kbd> checkpoint, <kbd>Space</kbd> pause, <kbd>L</kbd> learn, <kbd>W</kbd> wants, <kbd>V</kbd> value, <kbd>Esc</kbd> close</p>`;
   renderPanelTable();
 }
 function renderPanelTable() {
