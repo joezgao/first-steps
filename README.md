@@ -77,7 +77,7 @@ Each checkpoint is evaluated on 1,000 stochastic test runs with seed 1234, sampl
 - **Still noisy at the end.** The page runs the stochastic policy, so 1.6% of trained tries still fall in. The mean action alone reached the light in 1,000 of 1,000 runs (26.2 steps on average), but that was checked once by hand, is not logged, and is not what the page shows.
 - **Learning is not monotone.** Test success drops at 768 and 2,048 episodes, and the training-batch curve dips sharply around episode 7,000 (81% against 99.6% shortly before). REINFORCE is high-variance, and the slider shows the dips rather than hiding them.
 - **Small evidence.** The constants were tuned on seed 7, with a quick check of seeds 1–3 (92–99% success at about 10k episodes). That is not a robustness study. With 1,000 test runs per checkpoint, each percentage carries up to about ±1.5 points of sampling error (less near 0% or 100%). The six-creature tally on the page is a handful of tries, not a measurement.
-- Checked only in headless Chromium with software WebGL (about 10 fps on a shared 2-core machine); real GPUs will be smoother. Not tested in Safari or Firefox.
+- Checked only in headless Chromium. On an Apple M5 Pro (Chromium 155 over Metal, 1440 × 900, device pixel ratio 1) it holds 60 fps with main-thread JavaScript at median 0.5 ms, p95 0.8 ms per frame while dragging the view; with software WebGL on a shared 2-core machine it ran at about 10 fps. Not tested in Safari or Firefox, or on a phone.
 
 ## Run the training
 
