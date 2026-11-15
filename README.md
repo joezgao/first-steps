@@ -67,7 +67,7 @@ Each checkpoint is evaluated on 1,000 stochastic test runs with seed 1234, sampl
 
 - First it learns that closer is better and walks straight into the pit (pit falls rise from 28.9% to 73.8% by episode 64). Then it finds a way round. Late gains come from speed (91 → 33 steps) and less noise (σ 1.00 → 0.43).
 - Every successful test run, at every checkpoint, goes round the **right-hand** side of the pit.
-- Training takes seconds, not hours: the final run logged 7.3 s of wall-clock time, and identical earlier runs took 16 s and 19 s, depending on the machine and its load. Re-running `train.py` reproduces the checkpoints bit for bit.
+- Training takes seconds, not hours: the final run logged 7.3 s of wall-clock time, and identical earlier runs took 16 s and 19 s, depending on the machine and its load. On an Apple M5 Pro (NumPy 2.5.4, one thread) the same run took 2.8 s (2026-11-15). Re-running `train.py` reproduces the checkpoints bit for bit.
 - The page's JavaScript forward pass matches NumPy to 5.1e-7 (max |Δμ| over 64 states × 20 checkpoints). The page's own 1,000-run evaluation, with a different random generator (seed 11), gives 0% / 0.1% / 39.9% / 66.4% / 96.1% / 98.8% reaching the light at episodes 0 / 64 / 256 / 1,024 / 5,120 / 10,240, against Python's 0% / 0.3% / 37.4% / 65.4% / 95.5% / 98.4%.
 
 ## Limits
