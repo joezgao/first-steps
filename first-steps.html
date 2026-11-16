@@ -205,7 +205,7 @@ button{font:500 13px/1 var(--sans);letter-spacing:.02em;border:0;border-radius:9
       <span class="wide">Slide through its training and watch clumsy turn into skilled. Every creature here is the real policy, running live.</span>
     </p>
   </div>
-  <div class="meta"><div id="meta"></div><button class="made" id="made" aria-expanded="false" aria-controls="panel">How it works</button></div>
+  <div class="meta"><div id="meta"><div>REINFORCE <span>with a baseline</span></div><div class="wide">policy <span>2 → 48 → 48 → 2</span>, <span>2,596</span> numbers</div><div class="wide"><span>10,240</span> episodes, <span>seconds</span> to train</div><div>exploration noise σ <span class="acc">1.00</span></div></div><button class="made" id="made" aria-expanded="false" aria-controls="panel">How it works</button></div>
 </header>
 
 <div class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="panel-h">
@@ -217,8 +217,8 @@ button{font:500 13px/1 var(--sans);letter-spacing:.02em;border:0;border-radius:9
 
 <div class="dock">
   <div class="story">
-    <p class="note" id="note" aria-live="polite"></p>
-    <p class="stats" id="stats"></p>
+    <p class="note" id="note" aria-live="polite">Untrained. Its moves are noise, and it never finds the light.</p>
+    <p class="stats" id="stats">Episode <b>0</b><span class="wide"> of 10,240</span>; <span class="wide">in </span>1,000 test runs: <span class="acc">0%</span> reach the light, <b>28.9%</b> fall in, <b>71.1%</b> run out of time</p>
   </div>
   <div class="scrub">
     <span class="end">Untrained</span>
