@@ -203,14 +203,14 @@ button{font:500 13px/1 var(--sans);letter-spacing:.02em;border:0;border-radius:9
   ::selection{background:rgba(128,128,128,.35)}
   button:active:not(:disabled){filter:brightness(.85)}
 </style>
-<style>.jg-home{display:block;width:fit-content;margin:-12px 0 -8px;padding:12px 0;font-size:13px;line-height:20px;letter-spacing:.02em;color:inherit;opacity:.6;text-decoration:underline;text-underline-offset:3px;transition:opacity .2s ease}.jg-home:hover,.jg-home:focus-visible{opacity:1}.jg-home:focus-visible{outline:1px solid currentColor;outline-offset:3px}</style>
+<style>.jg-nav{display:flex;gap:24px;margin:-12px 0 -8px}.jg-nav .jg-home{margin:0}.jg-home{display:block;width:fit-content;margin:-12px 0 -8px;padding:12px 0;font-size:13px;line-height:20px;letter-spacing:.02em;color:inherit;opacity:.6;text-decoration:underline;text-underline-offset:3px;transition:opacity .2s ease}.jg-home:hover,.jg-home:focus-visible{opacity:1}.jg-home:focus-visible{outline:1px solid currentColor;outline-offset:3px}</style>
 </head>
 <body>
 <canvas id="stage" aria-label="3D landscape: a light on a hill, a pit in front of it, and small creatures trying to reach the light"></canvas>
 <div class="tags" id="tags" aria-hidden="true"><span class="lt">the light</span><span class="pt">the pit</span><span class="st">start</span></div>
 <header>
   <div>
-    <a class="jg-home" href="https://joezgao.github.io/work/">← Joe Gao</a>
+    <nav class="jg-nav" aria-label="Links"><a class="jg-home" href="https://joezgao.github.io/work/">← Joe Gao</a><a class="jg-home" href="https://github.com/joezgao/first-steps">Source</a></nav>
     <h1>First steps</h1>
     <p class="caption">
       <span>A small agent starts out knowing nothing. All it is ever told is how it did: a little reward for getting closer to <b>the light</b>, a bonus for reaching it, a penalty for falling into <b>the pit</b>.</span>
